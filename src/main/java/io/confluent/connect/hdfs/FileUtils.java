@@ -23,6 +23,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -94,6 +95,10 @@ public class FileUtils {
     sb.append(String.format(zeroPadFormat, startOffset));
     sb.append(HdfsSinkConnectorConstants.COMMMITTED_FILENAME_SEPARATOR);
     sb.append(String.format(zeroPadFormat, endOffset));
+    // Add timestamp
+    sb.append('_');
+    DateTimeFormatter timeStampPattern = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+    sb.append(timeStampPattern.format(java.time.LocalDateTime.now()));
     sb.append(extension);
     String name = sb.toString();
     return fileName(url, topicsDir, directory, name);
