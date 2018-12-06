@@ -31,9 +31,9 @@ import java.util.Map;
  * HdfsSinkConnector is a Kafka Connect Connector implementation that ingest data from Kafka to
  * HDFS.
  */
-public class HdfsSinkConnector extends SinkConnector {
+public class HdfsSinkConnectorModified extends SinkConnector {
 
-  private static final Logger log = LoggerFactory.getLogger(HdfsSinkConnector.class);
+  private static final Logger log = LoggerFactory.getLogger(HdfsSinkConnectorModified.class);
   private Map<String, String> configProperties;
   private HdfsSinkConnectorConfig config;
 
